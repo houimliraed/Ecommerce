@@ -1,0 +1,86 @@
+# Created by https://www.toptal.com/developers/gitignore/api/symfony
+# Edit at https://www.toptal.com/developers/gitignore?templates=symfony
+
+### Symfony ###
+# Cache and logs (Symfony2)
+.env
+.env.test
+/app/cache/*
+/app/logs/*
+!app/cache/.gitkeep
+!app/logs/.gitkeep
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+/.idea
+/.vagrant
+Homestead.json
+Homestead.yaml
+.env
+
+
+# Email spool folder
+/app/spool/*
+
+# Cache, session files and logs (Symfony3)
+/var/cache/*
+/var/logs/*
+/var/sessions/*
+!var/cache/.gitkeep
+!var/logs/.gitkeep
+!var/sessions/.gitkeep
+vendor/
+composer.lock
+phpunit.xml
+.php-cs-fixer.cache
+.php-cs-fixer.php
+.phpunit.result.cache
+composer.phar
+package.tar
+/packages.json
+/.phpunit
+
+
+# Logs (Symfony4)
+/var/log/*
+!var/log/.gitkeep
+
+# Parameters
+/app/config/parameters.yml
+/app/config/parameters.ini
+
+# Managed by Composer
+/app/bootstrap.php.cache
+/var/bootstrap.php.cache
+/bin/*
+!bin/console
+!bin/symfony_requirements
+/vendor/
+
+# Assets and user uploads
+/web/bundles/
+/web/uploads/
+
+# PHPUnit
+/app/phpunit.xml
+/phpunit.xml
+
+# Build data
+/build/
+
+# Composer PHAR
+/composer.phar
+
+# Backup entities generated with doctrine:generate:entities command
+**/Entity/*~
+
+# Embedded web-server pid file
+/.web-server-pid
+
+### Symfony Patch ###
+/web/css/
+/web/js/
+
+# End of https://www.toptal.com/developers/gitignore/api/symfony
