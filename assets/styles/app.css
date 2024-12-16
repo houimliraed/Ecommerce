@@ -68,3 +68,71 @@ body {
 .login-form a:hover {
     text-decoration: underline; /* Underline on hover */
 }
+/* General container styling for the security form */
+.security-form {
+    width: 100%; /* Full width for small screens */
+    max-width: 500px; /* Limit width on larger screens */
+    margin: 60px auto; /* Center the form vertically and horizontally */
+    padding: 25px; /* Internal spacing */
+    background-color: #f9f9f9; /* Light gray background for the form */
+    border-radius: 10px; /* Smooth rounded corners */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+    font-family: "Roboto", sans-serif; /* Modern, clean font */
+}
+
+/* Styling for form inputs */
+.security-form input[type="Text"],
+.security-form input[type="password"]{
+    width: 100%; /* Full width for the input fields */
+    padding: 12px; /* Comfortable spacing inside the input */
+    margin-bottom: 20px; /* Spacing between inputs */
+    border: 1px solid #ccc; /* Neutral gray border */
+    border-radius: 6px; /* Rounded edges */
+    font-size: 15px; /* Readable font size */
+    box-sizing: border-box; /* Prevent width issues */
+}
+
+/* Focused input styling */
+.security-form input:focus {
+    border-color: #28a745; /* Green border on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 4px rgba(40, 167, 69, 0.5); /* Subtle glow effect */
+}
+
+/* Submit button styling */
+.security-form button {
+    width: 100%; /* Full width for consistency */
+    padding: 14px; /* Comfortable padding */
+    background-color: #28a745; /* Green color for security-related actions */
+    color: #ffffff; /* White text color */
+    border: none; /* Remove border */
+    border-radius: 6px; /* Smooth rounded edges */
+    font-size: 16px; /* Button text size */
+    font-weight: bold; /* Bold text */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+}
+
+/* Hover effect for the button */
+.security-form button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* Additional text or links inside the form */
+.security-form .form-info {
+    font-size: 14px; /* Smaller font for helper text */
+    color: #555; /* Neutral darker gray */
+    margin-top: 15px; /* Spacing from other elements */
+    text-align: center; /* Center align text */
+}
+
+/* Link styling */
+.security-form a {
+    color: #28a745; /* Green color for links */
+    text-decoration: none; /* Remove underline */
+}
+
+/* Link hover effect */
+.security-form a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
