@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}SubCategory index{% endblock %}
+{% block title %}SubCategory{% endblock %}
 
 {% block body %}
-    <h1>SubCategory index</h1>
-
+    <h1>Sub Category</h1>
+<div class="container">
     <table class="table">
         <thead>
             <tr>
@@ -19,8 +19,8 @@
                 <td>{{ sub_category.id }}</td>
                 <td>{{ sub_category.name }}</td>
                 <td>
-                    <a href="{{ path('app_sub_category_show', {'id': sub_category.id}) }}">show</a>
-                    <a href="{{ path('app_sub_category_edit', {'id': sub_category.id}) }}">edit</a>
+                    <a class="btn btn-primary" href="{{ path('app_sub_category_show', {'id': sub_category.id}) }}">show</a>
+                    <a  class="btn btn-danger"  href="{{ path('app_sub_category_delete', {'id': sub_category.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -31,5 +31,6 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_sub_category_new') }}">Create new</a>
+    <a href="{{ path('app_sub_category_new') }}" class="btn btn-outline-primary">Add New SubCategory</a>
+    <div>
 {% endblock %}

@@ -24,6 +24,14 @@ class Category
     #[ORM\OneToMany(targetEntity: SubCategory::class, mappedBy: 'category')]
     private Collection $subCategories;
 
+    public function __tostring():string{
+        return $this->name;
+    }
+
+
+
+    
+
     public function __construct()
     {
         $this->subCategories = new ArrayCollection();

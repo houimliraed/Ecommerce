@@ -19,6 +19,10 @@ class SubCategory
     #[ORM\ManyToOne(inversedBy: 'subCategories')]
     private ?Category $category = null;
 
+    public function __tostring():string{
+        return $this->name;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
