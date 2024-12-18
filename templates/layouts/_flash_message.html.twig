@@ -1,0 +1,11 @@
+{% for type, messages in app.flashes(['success','danger','info'])  %}
+{% for message  in messages %}
+<div class="col-md-12 mx-auto mt-2"> 
+    <div class="alert alert-{{ type }} alert-dismissible fade show">
+        {{ message }}
+    </div>
+</div>
+{% endfor %}
+
+
+{% endfor %}
