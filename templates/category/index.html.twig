@@ -4,6 +4,7 @@
 
 {% block body %}
 <div class="container">
+    <h1>Categories</h1><br>
 <table class="table">
     <thead>
         <tr>
@@ -18,8 +19,8 @@
             <td>{{ category.id }}</td>
             <td>{{ category.name }}</td>
             <td>
-                <button>Edit</button>
-                <button>Delete</button>
+                <a href="{{ path('app_category_update', {'id': category.id}) }}">Edit</a>
+                <a href="{{ path('app_category_delete', {'id': category.id}) }}" class="text-danger">Delete</a>
             </td>
         </tr>
         {% else%}
@@ -27,6 +28,8 @@
         {% endfor %}
     </tbody>
 </table>
+<br>
+<a class="btn btn-outline-primary"  href="{{ path('app_category_add') }}" class="text-danger">Add New Category !</a>
 </div>
 
 {% endblock %}

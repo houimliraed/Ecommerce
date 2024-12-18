@@ -33,6 +33,7 @@ class CategoryController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
             $entityManager->persist($category);
             $entityManager->flush();
+            return $this->redirectToRoute('app_category');
         }
 
 
@@ -50,10 +51,22 @@ public function updateCategory(Category $category,EntityManagerInterface $entity
 
     if($form->isSubmitted()&&$form->isValid()){
         $entityManager->flush();
+        return $this->redirectToRoute('app_category');
     }
 
 
     return $this->render('category/updateCategory.html.twig',['form'=> $form->createView()]);
 
 }
+
+#[Route('/category/{id}/delete', name: 'app_category_delete')]
+    
+public function deleteCategory(Category $category,EntityManagerInterface $entityManager):Response{
+    
+$entityManager->remove($category);
+$entityManager->flush();
+return $this->redirectToRoute('app_category');
+
+}
+
 }
