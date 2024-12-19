@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\AddProductHistory;
 use App\Entity\Product;
 use App\Form\ProductType;
 use App\Repository\ProductRepository;
@@ -54,6 +55,15 @@ final class ProductController extends AbstractController
                 }
             $entityManager->persist($product);
             $entityManager->flush();
+
+            $stockHistory = new AddProductHistory();
+            $stockHistory->setQte($product->getStock());
+            $stockHistory->setProduct($product);
+            $stockHistory->setCreatedAt(new \DateTimeImmutable());
+
+            $entityManager->persist($stockHistory);
+            $entityManager->flush();
+
 
             $this->addFlash('success','thank you , your product added !');
             }
