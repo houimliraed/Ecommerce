@@ -35,7 +35,7 @@
                 <td>
                     <a class="btn btn-success" href="{{ path('app_product_show', {'id': product.id}) }}">show</a>
                     <a class="btn btn-danger" href="{{ path('app_product_edit', {'id': product.id}) }}">edit</a>
-                    <a class="btn btn-outline-info" href="{{ path('app_product_show', {'id': product.id}) }}">Add Stock</a>
+                    <a class="btn btn-outline-info" href="{{ path('app_product_stock_add', {'id': product.id}) }}">Add Stock</a>
                 </td>
             </tr>
         {% else %}
