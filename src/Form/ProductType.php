@@ -20,6 +20,7 @@ class ProductType extends AbstractType
             ->add('name')
             ->add('description')
             ->add('price')
+            ->add('stock')
             ->add('image',FileType::class,['label'=>'picture of the product'
             ,'mapped' => false,'required'=>false,"constraints"=>[new File(["maxSize"=>"1024k", "mimeTypes"=>['image/jpg','image/png'],'mimeTypesMessage'=>'you image has to be in a valid format !'])]])
             ->add('subCategories', EntityType::class, [

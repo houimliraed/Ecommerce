@@ -34,6 +34,9 @@ class Product
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
 
+    #[ORM\Column]
+    private ?int $stock = null;
+
     public function __construct()
     {
         $this->subCategories = new ArrayCollection();
@@ -112,6 +115,18 @@ class Product
     public function setImage(?string $image): static
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getStock(): ?string
+    {
+        return $this->stock;
+    }
+
+    public function setStock(string $stock): static
+    {
+        $this->stock = $stock;
 
         return $this;
     }

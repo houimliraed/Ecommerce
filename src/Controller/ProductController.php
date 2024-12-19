@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
-#[Route('/product')]
+#[Route('editor/product')]
 final class ProductController extends AbstractController
 {
     #[Route(name: 'app_product_index', methods: ['GET'])]
