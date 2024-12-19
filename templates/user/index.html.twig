@@ -1,20 +1,44 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello UserController!{% endblock %}
+{% block title %}Users{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/ray/Desktop/symfony/project/src/Controller/UserController.php</code></li>
-        <li>Your template at <code>C:/Users/ray/Desktop/symfony/project/templates/user/index.html.twig</code></li>
-    </ul>
+<div class="container">
+    <h1>All Users</h1>
+    {% include 'layouts/_flash_message.html.twig' %}
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Name</th>
+                <th>First Name</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.firstName }}</td>
+                <td>{{ user.lastName }}</td>
+                <td>{{ user.roles | join(', ') }}</td>
+                <td>
+                    <a href="{{path('app_user_to_editor',{'id':user.id})}}" class="btn btn-outline-primary">ADD ROLE</a>
+                    <a href="{{path('app_user_remove',{'id':user.id})}}" class="btn btn-danger btn-sm" 
+                       onclick="return confirm('Are you sure you want to delete this user?');">Delete</a>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="6" class="text-center">No users found</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
+
+
 {% endblock %}
