@@ -136,3 +136,15 @@ body {
 .security-form a:hover {
     text-decoration: underline; /* Underline on hover */
 }
+h1 {
+    font-size: 2.5rem; /* Taille de la police */
+    color: #333; /* Couleur du texte */
+    font-weight: bold; /* Épaisseur de la police */
+    text-align: center; /* Centrer le texte */
+    margin: 20px 0; /* Marges haut et bas */
+    text-transform: uppercase; /* Tout en majuscules */
+    letter-spacing: 2px; /* Espacement entre les lettres */
+    background: linear-gradient(to right, #8a7772, #958579); /* Dégradé */
+    -webkit-background-clip: text; /* Clip du fond au texte */
+    -webkit-text-fill-color: transparent; /* Rendre le texte transparent */
+}
