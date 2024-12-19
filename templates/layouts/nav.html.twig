@@ -1,43 +1,57 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
-    <div class="container">
-      <a class="navbar-brand" href="#">My shop</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+      <a class="navbar-brand" href="#">My Shop</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarScroll">
-        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
+          <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{{ path('app_home') }}">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ path('app_category') }}">Categories</a>
+              </li>
 
-          {% if is_granted("ROLE_ADMIN") %} 
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Administration
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="{{ path('app_category') }}">Categories</a></li>
-              <li><a class="dropdown-item" href="{{ path('app_category_add') }}">Add Category</a></li>
-              <li><a class="dropdown-item" href="{{ path('app_sub_category_index') }}">All Sub Category</a></li>
-              <li><a class="dropdown-item" href="{{ path('app_sub_category_new') }}">Add Sub Category</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="{{ path('app_product_index') }}">Products</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="{{ path('app_user') }}">All Users</a></li>
-            </ul>
-          </li>
-          {% endif %}
-          <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">Link</a>
-          </li>
-        </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+              {% if is_granted("ROLE_ADMIN") %} 
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Administration
+                  </a>
+                  <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="{{ path('app_category') }}">Categories</a></li>
+                      <li><a class="dropdown-item" href="{{ path('app_category_add') }}">Add Category</a></li>
+                      <li><a class="dropdown-item" href="{{ path('app_sub_category_index') }}">All Sub Categories</a></li>
+                      <li><a class="dropdown-item" href="{{ path('app_sub_category_new') }}">Add Sub Category</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="{{ path('app_product_index') }}">Products</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="{{ path('app_user') }}">All Users</a></li>
+                  </ul>
+              </li>
+              {% endif %}
+              <li class="nav-item">
+                  <a class="nav-link disabled" aria-disabled="true">Login?</a>
+              </li>
+          </ul>
+          <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+          <div class="d-flex align-items-center ms-3">
+              <!-- Cart icon with item count -->
+              <a href="{{ path('app_cart') }}" class="btn btn-outline-light position-relative">
+                  <img src="{{ asset('images/cart-icon.png') }}" alt="Cart" style="width: 24px; height: 24px;"> <!-- Custom cart image -->
+                  {% set cart = app.session.get('cart', {}) %}
+                  {% set cartItemCount = cart|length %}
+                  {% if cartItemCount > 0 %}
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                          {{ cartItemCount }}
+                          <span class="visually-hidden">unread messages</span>
+                      </span>
+                  {% endif %}
+              </a>
+          </div>
       </div>
-    </div>
-  </nav>
+  </div>
+</nav>

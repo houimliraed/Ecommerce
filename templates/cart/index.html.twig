@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Your Cart{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Your Cart</h1>
+
+        {% if items is empty %}
+            <p>Your cart is empty.</p>
+        {% else %}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                        <th>Actions</th> <!-- Added for the Remove action -->
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in items %}
+                        <tr>
+                            <td>{{ item.product.name }}</td>
+                            <td>{{ item.quantity }}</td>
+                            <td>${{ item.product.price|number_format(2, '.', ',') }}</td>
+                            <td>${{ (item.product.price * item.quantity)|number_format(2, '.', ',') }}</td>
+                            <td>
+                                <!-- Remove button to delete an item from the cart -->
+                                <a href="{{ path('app_cart_remove', {'id': item.product.id}) }}" class="btn btn-danger btn-sm">Remove</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <div class="d-flex justify-content-end">
+                <h4>Total: ${{ total|number_format(2, '.', ',') }}</h4>
+            </div>
+
+            <div class="d-flex justify-content-end mt-3">
+                <a href="" class="btn btn-primary">Proceed to Checkout</a>
+                <a href="{{ path('app_cart_clear')}}" class="btn btn-danger">Empty Cart</a>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -16,9 +16,9 @@
                         <img src="https://picsum.photos/300/150?random={{ loop.index }}" class="card-img-top" alt="Placeholder image">
                     {% endif %}
                     <div class="card-body">
-                        <h5 class="card-title">{{ product.name }}</h5>
+                        <a href="{{path('app_home_product_show',{'id': product.id})}}" class="card-title">{{ product.name }}</a>
                         <p class="card-text text-truncate">{{ product.description }}</p>
-                        <a href="" class="btn btn-primary btn-sm">Ajouter au panier</a>
+                        <a href="{{path('app_cart_new',{'id': product.id})}}" class="btn btn-primary btn-sm">Ajouter au panier</a>
                     </div>
                 </div>
             </div>
