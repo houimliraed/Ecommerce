@@ -3,7 +3,8 @@
 {% block title %}Product index{% endblock %}
 
 {% block body %}
-    <h1>Product index</h1>
+<div class="container">
+    <h1>Products</h1><br>
 
     <table class="table">
         <thead>
@@ -29,11 +30,13 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">no nothing to see here !</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_product_new') }}">Create new</a>
+    <a href="{{ path('app_product_new') }}">Add a Product</a>
+
+</div>
 {% endblock %}
