@@ -10,6 +10,7 @@
             <tr>
                 <th>Id</th>
                 <th>Name</th>
+                <th>Category</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -18,6 +19,7 @@
             <tr>
                 <td>{{ sub_category.id }}</td>
                 <td>{{ sub_category.name }}</td>
+                <td>{{ sub_category.category.name }}</td>
                 <td>
                     <a class="btn btn-primary" href="{{ path('app_sub_category_show', {'id': sub_category.id}) }}">show</a>
                     <a  class="btn btn-danger"  href="{{ path('app_sub_category_delete', {'id': sub_category.id}) }}">edit</a>
