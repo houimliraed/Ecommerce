@@ -119,12 +119,12 @@ class Product
         return $this;
     }
 
-    public function getStock(): ?string
+    public function getStock(): ?int
     {
         return $this->stock;
     }
 
-    public function setStock(string $stock): static
+    public function setStock(int $stock): static
     {
         $this->stock = $stock;
 
