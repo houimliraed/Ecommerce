@@ -14,15 +14,7 @@ class AddProductHistoryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('qte')
-            ->add('createdAt', null, [
-                'widget' => 'single_text',
-            ])
-            ->add('product', EntityType::class, [
-                'class' => Product::class,
-                'choice_label' => 'id',
-            ])
-        ;
+            ->add('qte');
     }
 
     public function configureOptions(OptionsResolver $resolver): void

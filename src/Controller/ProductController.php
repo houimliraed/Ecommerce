@@ -120,14 +120,39 @@ final class ProductController extends AbstractController
     }
 
     #[Route('/add/product/{id}/stock', name: 'app_product_stock_add', methods: ['GET', 'POST'])]
-    public function addStock($id,EntityManagerInterface $entityManager,Request $request):Response{
+    public function addStock($id,EntityManagerInterface $entityManager,Request $request,ProductRepository $productRepository):Response{
 
         $addStock =new AddProductHistory;
         $form=$this->createForm(AddProductHistoryType::class,$addStock);
         $form->handleRequest($request);
 
+        $product = $productRepository->find($id);
+        if($form->isSubmitted()&&$form->isValid())
+        {
+            if($addStock->getQte()>0){
+            $newQte = $product->getStock() + $addStock->getQte();
+            $product->setStock($newQte);
+
+            $addStock->setCreatedAt(new \DateTimeImmutable());
+            $addStock->setProduct($product);
+
+            $entityManager->persist($addStock);
+            $entityManager->flush();
+
+            $this->addFlash('success',"your product stock has been modified!");
+
+            return $this->redirectToRoute('app_product_index');
+        }else{
+            $this->addFlash('danger','stock has not been updated !, it has to be > 0');
+            $this->redirectToRoute('app_product_stock_add',['id'=>$product->getId()]);
+        }
+
+
+        }
+
         return $this->render('product/addStock.html.twig',[
-            'form'=> $form->createView()
+            'form'=> $form->createView(),
+            'product'=> $product
         ]
         );
     }
