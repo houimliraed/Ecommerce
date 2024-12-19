@@ -1,0 +1,17 @@
+{{ form_start(form, {'attr': {'class': 'needs-validation', 'novalidate': 'novalidate'}}) }}
+    <div class="mb-3">
+        {{ form_label(form.name, 'City Name', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.name, {'attr': {'class': 'invalid-feedback'}}) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.shippingCost, 'Shipping Cost', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.shippingCost, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.shippingCost, {'attr': {'class': 'invalid-feedback'}}) }}
+    </div>
+
+    <div class="d-flex justify-content-end mt-4">
+        <button class="btn btn-primary" type="submit">{{ button_label|default('Save') }}</button>
+    </div>
+{{ form_end(form) }}

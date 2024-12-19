@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit City{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1 class="mb-4 text-center">Edit City</h1>
+
+        <!-- Edit City Form -->
+        <div class="card shadow-sm">
+            <div class="card-body">
+                {{ include('city/_form.html.twig', {'button_label': 'Update'}) }}
+            </div>
+        </div>
+
+        <!-- Back to list and delete options -->
+        <div class="mt-4 d-flex justify-content-between">
+            <a href="{{ path('app_city_index') }}" class="btn btn-secondary">Back to list</a>
+            {{ include('city/_delete_form.html.twig') }}
+        </div>
+    </div>
+{% endblock %}
