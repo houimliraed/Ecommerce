@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\AddProductHistory;
 use App\Entity\Category;
 use App\Form\CategoryFormType;
 use App\Repository\CategoryRepository;
@@ -33,6 +34,8 @@ class CategoryController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
             $entityManager->persist($category);
             $entityManager->flush();
+
+            
 
             $this->addFlash('success','votre catégorie a été crée');
             return $this->redirectToRoute('app_category');
