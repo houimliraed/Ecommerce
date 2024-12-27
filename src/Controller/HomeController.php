@@ -6,6 +6,7 @@ use App\Entity\Product;
 
 use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
@@ -28,3 +29,12 @@ public function show(Product $product): Response
 }
 
 }
+
+  #[Route('/product/{id}', name: 'showProduct',methods:['GET'] )]
+  public function showProduct($id, ProductRepository $productRepository): Response
+  {
+    $productRepository->findById('id', $id );
+
+
+    return($this->render(JsonResponse($productRepository)));
+  }
